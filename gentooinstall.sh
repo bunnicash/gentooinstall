@@ -1,6 +1,6 @@
 #!/bin/bash
 ## Copyright (C) 2022 bunnicash "@bunnicash" and licensed under GPL-2.0
-version="v0.1-002 alpha"
+version="v0.1-003 alpha"
 
 ##Colors
 c-mg () {
@@ -37,7 +37,7 @@ fi
 # Modules
 bash discard.sh
 bash startup.sh
-cd /root && mv gentooinstall /mnt/gentoo
+cd /root && mv gentooinstall /mnt/gentoo/root
 chroot /mnt/gentoo /root/gentooinstall/main.sh
 
 c-mg && echo -ne "
