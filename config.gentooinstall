@@ -1,0 +1,10 @@
+#!/bin/bash
+## Copyright (C) 2022 bunnicash "@bunnicash" and licensed under GPL-2.0
+
+## Gentooinstall Configuration
+drive="sda"
+machineused="vm"
+defaultkeys="de-latin1"
+part_swap="16G"
+zone="Europe/Berlin"
+stagelink="https://gentoo-mirror.alexxy.name//releases/amd64/autobuilds/20220605T170549Z/stage3-amd64-openrc-20220605T170549Z.tar.xz"  # https://www.gentoo.org/downloads/, https://gentoo-mirror.alexxy.name//releases/amd64/autobuilds/

@@ -1,0 +1,7 @@
+# Folders
+/Archive/
+
+# General
+*.txt
+*.log
+*.tar.gz
