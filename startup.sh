@@ -19,7 +19,7 @@ mkswap /dev/${drive}2
 swapon /dev/${drive}2
 mkfs.ext4 /dev/${drive}3
 echo " " && lsblk && sleep 2
-mount /dev/${drive}3 /mnt && mkdir /mnt/gentoo
+mkdir /mnt/gentoo && mount /dev/${drive}3 /mnt/gentoo
 
 ##Timezone
 ntpd -q -g
