@@ -53,7 +53,7 @@ c-mg && echo -ne "
      /#####/'                |
 
 " && c-df
-sleep 2 && reboot now
+sleep 2
 
 
 
