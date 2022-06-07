@@ -20,21 +20,21 @@ Automated Gentoo Linux Installation <br>
 </p>
 <br>
 
-### Using gentooinstall on the Arch Linux ISO
+### Using gentooinstall
 - Gentoo can be installed via its own minimal installer, but it can also be installed on any other live media or running system.
-- The project will primarily use the Arch Linux ISO to do so, as it's lightweight, portable and easily modified.
-```
-pacman -Sy git --noconfirm
-git clone https://github.com/bunnicash/gentooinstall
-cd gentooinstall && chmod +x * && ./gentooinstall.sh
-```
-<br>
+- The project provides an automated installer that you'll have to download to a drive that can be accessed when using the Gentoo live CD.
+- To do so for example on a running Linux machine, create a folder to clone the github repository to: `git clone https://github.com/bunnicash/gentooinstall`
+- After you've booted, simply copy/move the program directory from your drive directly to the Gentoo live root, e.g: `cp -f /mnt/EXAMPLE/gentooinstall /root`
+- Once done, you can for example boot the Gentoo live CD, mount the drive you cloned the project to and start the installer `cd /root/gentooinstall && chmod +x * && ./gentooinstall.sh`
+<br><br>
 
 ### Useful Information
-- ... <br><br>
+- ...
+<br><br>
 
 ### Features
-- [x] ... <br><br>
+- [x] ...
+<br><br>
 
 ### Testing / Contributing:
 - Is there an unstable branch for testing? Yes, you can use the testing branch: `git clone -b testing https://github.com/bunnicash/gentooinstall`.
@@ -46,7 +46,6 @@ cd gentooinstall && chmod +x * && ./gentooinstall.sh
 <pre><b>Settings</b>
 • drive: the target drive to format and install on, see "lsblk" and "blkid" for more
 • machineused: set to "hw" for real hardware, "vm" for virtual environments - determines formatting/discarding process
-• defaultkeys: the keyboard layout used, see "localectl list-keymaps" for more
 • part_swap: swap partition size for the linux installation, size x in GB = xG
 • zone: the timezone used by the system, keep in mind many DE's need a separate GUI set-up for this too
 • ...

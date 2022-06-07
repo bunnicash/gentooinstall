@@ -4,7 +4,8 @@
 ## Gentooinstall Configuration
 drive="sda"
 machineused="vm"
-defaultkeys="de-latin1"
-part_swap="16G"
+part_swap="8G"
 zone="Europe/Berlin"
 stagelink="https://gentoo-mirror.alexxy.name//releases/amd64/autobuilds/20220605T170549Z/stage3-amd64-openrc-20220605T170549Z.tar.xz"  # https://www.gentoo.org/downloads/, https://gentoo-mirror.alexxy.name//releases/amd64/autobuilds/
+jthreads="6"  # CPU threads (also, ideally: RAM = threads x 2)
+use_flg=" "  # not yet used
