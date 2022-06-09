@@ -22,6 +22,7 @@ Automated Gentoo Linux Installation <br>
 
 ### Using gentooinstall
 - Gentoo can be installed via its own minimal installer, but it can also be installed on any other live media or running system.
+- For a full guide, see the [Gentoo Handbook, amd64](https://wiki.gentoo.org/wiki/Handbook:AMD64/Full/Installation)
 - We encourage you to boot into the Gentoo live CD and to download the latest release from GitHub, e.g: `cd /root && wget https://github.com/bunnicash/gentooinstall/releases/download/0.1-004/gentooinstall.v0.1-004.alpha.tar.gz`
 - After downloading the program, simply untar it: `tar -xvf gentooinstall.*.tar.gz` and finally, start the installer: `cd gentooinstall && chmod +x * && ./gentooinstall.sh`
 <br><br>

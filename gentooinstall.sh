@@ -1,6 +1,6 @@
 #!/bin/bash
 ## Copyright (C) 2022 bunnicash "@bunnicash" and licensed under GPL-2.0
-version="v0.1-004 alpha"
+version="v0.1-005 alpha"
 
 ##Colors
 c-mg () {
@@ -40,6 +40,9 @@ bash discard.sh
 bash startup.sh
 cd /root && mv gentooinstall /mnt/gentoo/root
 chroot /mnt/gentoo /root/gentooinstall/main.sh
+echo " " && rm -rf /mnt/gentoo/root/gentooinstall
+umount -l /mnt/gentoo/dev{/shm,/pts,}
+umount -R /mnt/gentoo 
 
 c-mg && echo -ne "
 
@@ -47,14 +50,14 @@ c-mg && echo -ne "
       \#######\.             |
        \###(O)###\.          |
         \###########\        |
-         )###########)       |        The installation is complete, rebooting in 2 seconds...
+         )###########)       |        The installation is complete, rebooting...
         /###########/        |
        /#########/'          |
       /#######/'             |
      /#####/'                |
 
 " && c-df
-sleep 2
+sleep 3 && reboot 
 
 
 

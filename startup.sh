@@ -34,14 +34,15 @@ clear && ls
 
 ## Configure make.conf (/mnt/gentoo/etc/portage)
 cd etc/portage
-
 # common_flags, makeopts
 sed -i 's/^#COMMON_FLAGS="-02 -pipe"/COMMON_FLAGS="-march=native -02 -pipe"/' make.conf
 echo -ne "
 MAKEOPTS=\"-j$jthreads\"
 " >> make.conf
-
-# TODO "use"-flags?
+# use"-flags
+echo -ne "
+USE=\"$use_flg\"
+" >> make.conf
 
 # gentoo_mirrors (https://wiki.gentoo.org/wiki/GENTOO_MIRRORS, https://www.gentoo.org/downloads/mirrors/
 echo "Starting Mirrorselect: Please choose your desired mirrors!" && sleep 2
