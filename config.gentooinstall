@@ -8,7 +8,7 @@ part_swap="8G"
 zone="Europe/Berlin"
 stagelink="https://gentoo-mirror.alexxy.name//releases/amd64/autobuilds/20220605T170549Z/stage3-amd64-openrc-20220605T170549Z.tar.xz"  # https://www.gentoo.org/downloads/, https://gentoo-mirror.alexxy.name//releases/amd64/autobuilds/
 jthreads="6"  # CPU threads (also, ideally: RAM = threads x 2)
-use_flg="-systemd -gnome -kde -bluetooth"  #
+use_flg="-systemd -gnome -kde -bluetooth"  # global (-X to not use/enable, X to use/enable)
 gprof="1"
 deflocale="en_US.UTF-8"
 deflocale2="UTF-8"

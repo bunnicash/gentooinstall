@@ -1,6 +1,6 @@
 #!/bin/bash
 ## Copyright (C) 2022 bunnicash "@bunnicash" and licensed under GPL-2.0
-version="v0.1-005 alpha"
+version="v0.1-006 alpha"
 
 ##Colors
 c-mg () {
