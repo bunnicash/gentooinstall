@@ -35,11 +35,24 @@ clear && ls
 ## Configure make.conf (/mnt/gentoo/etc/portage)
 cd etc/portage
 # common_flags, makeopts
-sed -i 's/^#COMMON_FLAGS="-02 -pipe"/COMMON_FLAGS="-march=native -02 -pipe"/' make.conf
-echo -ne "
-MAKEOPTS=\"-j$jthreads\"
-" >> make.conf
-# use"-flags
+sed -i 's/^COMMON_FLAGS="-02 -pipe"/COMMON_FLAGS="-march=native -02 -pipe"/' make.conf
+if [ $jthreads -le "8" ]; then
+    echo -ne "
+    MAKEOPTS=\"-j$jthreads\"
+    " >> make.conf
+elif [ $jthreads -gt "8" ]; then
+    # https://wiki.gentoo.org/wiki/EMERGE_DEFAULT_OPTS
+    njobs="0"
+    while [ $jthreads -ge "8" ]; do
+        jthreads=$(($jthreads - 8))
+        njobs=$(($njobs + 1))
+    done
+    echo -ne "
+    MAKEOPTS=\"-j$jthreads\"
+    EMERGE_DEFAULT_OPTS=\"--jobs $njobs\"
+    " >> make.conf
+fi
+# "use"-flags
 echo -ne "
 USE=\"$use_flg\"
 " >> make.conf
