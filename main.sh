@@ -29,7 +29,8 @@ clear
 if [ $gkernel == "0" ]; then
     emerge sys-kernel/gentoo-kernel-bin
 elif [ $gkernel == "1" ]; then
-    echo "soon"
+    echo "coming soon, falling back to default..."
+    emerge sys-kernel/gentoo-kernel-bin
 fi 
 clear 
 

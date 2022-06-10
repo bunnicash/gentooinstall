@@ -51,6 +51,15 @@ Automated Gentoo Linux Installation <br>
 • machineused: set to "hw" for real hardware, "vm" for virtual environments - determines formatting/discarding process
 • part_swap: swap partition size for the linux installation, size x in GB = xG
 • zone: the timezone used by the system, keep in mind many DE's need a separate GUI set-up for this too
-• ...
+• stagelink: link to a stage3 tar, might be replaced with links browser in the future
+• jthreads: number of threads for makeopts, for every package
+• jsplit: split cpu into units of n-cores, determines with njobs, jthreads how many packages are processed at the same time and with how many threads each
+• use_flg: globaly set use flags (-X to not use/enable, X to use/enable)
+• gprof: the oortage profile that's used, see https://wiki.gentoo.org/wiki/Profile_(Portage) 
+• deflocale, deflocale2: the default locale, currently split into 2 variables 
+• gkernel: gentoo kernel, "0" for default linux kernel in binary form, "1" for custom variations
+• hostname: the name of the system/host
+• rootpass: root / superuser password 
+• netdev: the network device, e.g: eth0 
 </pre>
 <br>
