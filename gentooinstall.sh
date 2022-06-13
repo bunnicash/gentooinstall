@@ -1,16 +1,16 @@
 #!/bin/bash
 ## Copyright (C) 2022 bunnicash "@bunnicash" and licensed under GPL-2.0
-version="v0.1-006 alpha"
+version="v0.1-007"
 
-##Colors
+## Colors
 c-mg () {
-    echo -ne "\e[35m" # Magenta
+    echo -ne "\e[95m" # Magenta
 }
 c-df () {
     echo -ne "\e[39m" # Default
 }
 
-##Gentooinstall
+## Gentooinstall (Start)
 cd /root/gentooinstall && chmod +x *.sh
 c-mg && echo -ne "
 
@@ -26,7 +26,7 @@ c-mg && echo -ne "
 
 " && c-df
 
-# Configuration
+## Configuration
 read -p "Edit gentooinstall configuration [1] or use defaults [2]? " gentooconfig
 if [ $gentooconfig == "1" ]; then
     echo -e "Starting editor (CTRL+O to save, CTRL+X to quit) \n" && sleep 2
@@ -35,15 +35,16 @@ elif [ $gentooconfig == "2" ]; then
     echo -e "Using default configuration... \n"
 fi
 
-# Modules
+## Modules
 bash discard.sh
 bash startup.sh
 cd /root && mv gentooinstall /mnt/gentoo/root
 chroot /mnt/gentoo /root/gentooinstall/main.sh
+
+## Gentooinstall (Exit)
 echo " " && rm -rf /mnt/gentoo/root/gentooinstall
 umount -l /mnt/gentoo/dev{/shm,/pts,}
 umount -R /mnt/gentoo 
-
 c-mg && echo -ne "
 
      /#####\.                |
@@ -57,15 +58,4 @@ c-mg && echo -ne "
      /#####/'                |
 
 " && c-df
-sleep 3 && reboot 
-
-
-
-
-
-
-
-
-
-
-
+sleep 2 && reboot

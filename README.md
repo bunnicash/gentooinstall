@@ -35,8 +35,9 @@ Automated Gentoo Linux Installation <br>
 <br><br>
 
 ### Features
-- [x] Unattended installation mode with custom-made/imported configurations
-- [x] ...
+- [x] Automatic installation with custom/imported configurations
+- [x] Minimal user interaction (For stages, mirrors only)
+- [ ] ...
 <br><br>
 
 ### Testing / Contributing:
@@ -50,10 +51,9 @@ Automated Gentoo Linux Installation <br>
 • drive: the target drive to format and install on, see "lsblk" and "blkid" for more
 • machineused: set to "hw" for real hardware, "vm" for virtual environments - determines formatting/discarding process
 • part_swap: swap partition size for the linux installation, size x in GB = xG
+• getstage: stage link for TUI browser 
 • zone: the timezone used by the system, keep in mind many DE's need a separate GUI set-up for this too
-• stagelink: link to a stage3 tar, might be replaced with links browser in the future
-• jthreads: number of threads for makeopts, for every package
-• jsplit: split cpu into units of n-cores, determines with njobs, jthreads how many packages are processed at the same time and with how many threads each
+• jsplit: split cpu into units of n-cores, determines with njobs, jthreads how many packages are processed at the same time and with how many threads each (Keep in mind you should have 2GB per thread)
 • use_flg: globaly set use flags (-X to not use/enable, X to use/enable)
 • gprof: the oortage profile that's used, see https://wiki.gentoo.org/wiki/Profile_(Portage) 
 • deflocale, deflocale2: the default locale, currently split into 2 variables 
@@ -61,5 +61,6 @@ Automated Gentoo Linux Installation <br>
 • hostname: the name of the system/host
 • rootpass: root / superuser password 
 • netdev: the network device, e.g: eth0 
+• ... 
 </pre>
 <br>

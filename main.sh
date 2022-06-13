@@ -2,13 +2,14 @@
 ## Copyright (C) 2022 bunnicash "@bunnicash" and licensed under GPL-2.0
 source /root/gentooinstall/config.gentooinstall
 
-## Finishing Chroot
+## Finalize Chroot
 source /etc/profile
+export PS1="gentoo-chroot ${PS1}"
 mount /dev/${drive}1 /boot
 emerge-webrsync
 
 ## Building Profile
-eselect profile $gprof  # eselect profile list
+eselect profile $gprof
 emerge --verbose --update --deep --newuse @world
 
 ## Machine Timezone, Locale 
@@ -60,9 +61,7 @@ rc-update add net.$netdev default
 echo " "
 
 ## Bootloader: GRUB
-echo -ne "
-GRUB_PLATFORMS=\"efi-64\"
-" >> /etc/portage/make.conf 
+echo -e "GRUB_PLATFORMS=\"efi-64\" " >> /etc/portage/make.conf 
 emerge sys-boot/grub
 grub-install --target=x86_64-efi --efi-directory=/boot 
 grub-mkconfig -o /boot/grub/grub.cfg 
