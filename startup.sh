@@ -2,7 +2,7 @@
 ## Copyright (C) 2022 bunnicash "@bunnicash" and licensed under GPL-2.0
 source /root/gentooinstall/config.gentooinstall
 
-##Partitioning
+## Partitioning
 umount -A --recursive /mnt
 partprobe /dev/$drive
 sgdisk -Z /dev/$drive
@@ -21,21 +21,19 @@ mkfs.ext4 /dev/${drive}3
 echo " " && lsblk && sleep 2
 mkdir /mnt/gentoo && mount /dev/${drive}3 /mnt/gentoo
 
-##Timezone
+## Import Gentoo Stages
 ntpd -q -g
 date
-
-## Import Gentoo Stages
 cd /mnt/gentoo
-wget $stagelink
-# TODO Use "links" instead? TUI browser (https://wiki.gentoo.org/wiki/Handbook:AMD64/Installation/Stage - "links http://distfiles.gentoo.org/releases/amd64/autobuilds/")
+links $getstage
+clear 
 tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
-clear && ls
 
 ## Configure make.conf (/mnt/gentoo/etc/portage)
 cd etc/portage
 # common_flags, makeopts
 sed -i 's/^COMMON_FLAGS="-02 -pipe"/COMMON_FLAGS="-march=native -02 -pipe"/' make.conf
+jthreads=$(nproc --all)
 if [ $jthreads -le $jsplit ]; then
     echo -ne "
     MAKEOPTS=\"-j$jthreads\"
@@ -57,7 +55,6 @@ USE=\"$use_flg\"
 " >> make.conf
 
 # gentoo_mirrors (https://wiki.gentoo.org/wiki/GENTOO_MIRRORS, https://www.gentoo.org/downloads/mirrors/
-echo "Starting Mirrorselect: Please choose your desired mirrors!" && sleep 2
 mirrorselect -i -o >> /mnt/gentoo/etc/portage/make.conf
 clear
 mkdir --parents /mnt/gentoo/etc/portage/repos.conf

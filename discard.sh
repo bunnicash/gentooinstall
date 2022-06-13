@@ -2,7 +2,7 @@
 ## Copyright (C) 2022 bunnicash "@bunnicash" and licensed under GPL-2.0
 source /root/gentooinstall/config.gentooinstall
 
-##Wiping: Securely erase target
+## Wiping: Securely erase target
 echo -e "\nWiping target drive entirely!"
 if [ $machineused == "vm" ] || [ $machineused == "VM" ]; then
     blkdiscard -z -f /dev/$drive ; sync
